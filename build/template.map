@@ -1,0 +1,193 @@
+__text_start T 80010000 	C:/psnoobsdk/projects/SataScram/clip.c:43
+tri_clip T 80010000 10c	C:/psnoobsdk/projects/SataScram/clip.c:63
+quad_clip T 8001010c 168	C:/psnoobsdk/projects/SataScram/clip.c:83
+LookAt T 80010274 20c	C:/psnoobsdk/projects/SataScram/lookat.c:13
+playNextTrack T 80010480 84	C:/psnoobsdk/projects/SataScram/main.c:201
+sort_cube T 80010504 2f0	C:/psnoobsdk/projects/SataScram/main.c:582
+sort_pyrimid T 800107f4 2c0	C:/psnoobsdk/projects/SataScram/main.c:697
+load_file T 80010ab4 b4	C:/psnoobsdk/projects/SataScram/main.c:807
+display T 80010b68 10c	C:/psnoobsdk/projects/SataScram/main.c:956
+initialLoad T 80010c74 7c	C:/psnoobsdk/projects/SataScram/main.c:981
+init T 80010cf0 2c4	C:/psnoobsdk/projects/SataScram/main.c:855
+main T 80010fb4 bc4	C:/psnoobsdk/projects/SataScram/main.c:211
+ClearOTagR T 80011b78 
+DrawOTag T 80011ba4 
+DrawSync T 80011bf8 
+FntLoad T 80011c94 158
+FntOpen T 80011dec f0
+FntPrint T 80011edc a4
+FntFlush T 80011f80 2d0
+GetTimInfo T 80012250 9c
+LoadImage T 800122ec 
+PutDispEnv T 80012390 
+PutDrawEnv T 80012568 
+ReadGPUstat T 800126dc 
+ResetGraph T 800126ec 
+VSync T 8001286c 
+_vsync_sub t 80012974 
+_vsync_irq_callback t 80012a08 
+SetDefDispEnv T 80012a60 34
+SetDefDrawEnv T 80012a94 38
+SetDispMask T 80012acc 
+SetVideoMode T 80012aec 
+ApplyMatrixLV T 80012b68 
+CompMatrixLV T 80012bc8 
+InitGeom T 80012ce8 
+isin T 80012d50 64
+icos T 80012db4 64
+RotMatrix T 80012e18 13c
+TransMatrix T 80012f54 20
+MulMatrix0 T 80012f74 
+PushMatrix T 8001304c 
+PopMatrix T 80013098 
+VectorNormalS T 800130e8 
+SpuInit T 800131c0 
+SpuCtrlSync T 800132ac 
+SpuWait T 800132d0 
+SpuSetVoiceRaw T 800132f0 
+CdMix T 80013358 
+_CdReadIsoDescriptor t 8001339c 1f0
+get_pathtable_entry t 8001358c 11c
+resolve_pathtable_path t 800136a8 98
+_CdReadIsoDirectory.part.0.isra.0 t 80013740 150
+CdSearchFile T 80013890 348
+_CdReadReadyCallback t 80013bd8 110
+CdDoRetry t 80013ce8 1a4
+CdInit T 80013e8c 1a4
+CdControlF T 80014030 14c
+CdControl T 8001417c 88
+CdIntToPos T 80014204 e4
+CdPosToInt T 800142e8 90
+CdStatus T 80014378 10
+CdRead T 80014388 17c
+CdReadSync T 80014504 144
+_cd_init T 80014648 
+_cd_wait T 80014758 
+_cd_wait_ack T 80014790 
+_cd_wait_complt T 800147b0 
+_cd_handler t 800147d0 
+_cd_fetch_result t 80014a50 
+CdAutoPauseCallback T 80014b30 
+CdReadyCallback T 80014b7c 
+CdSyncCallback T 80014bcc 
+_cd_control T 80014c1c 
+CdGetSector T 80014d7c 
+InterruptCallback T 80014dc0 
+_global_isr t 80014e1c 
+RestartCallback T 80014e98 
+_96_remove T 80014f2c 
+printf T 80014f38 
+puts T 80014f44 
+_boot T 80014f50 
+ChangeClearPAD T 80014f5c 
+ChangeClearRCnt T 80014f68 
+EnterCriticalSection T 80014f74 
+ExitCriticalSection T 80014f84 
+InitPAD T 80014f94 
+ReturnFromException T 80014fa0 
+SetCustomExitFromException T 80014fac 
+StartPAD T 80014fb8 
+GetBSSend T 80014fc4 
+InitHeap W 80014fd4 
+SetHeapSize W 80014ffc 
+malloc W 80015010 
+calloc W 80015134 
+free W 80015170 
+memcpy T 800151a8 
+_start T 800151d0 238
+toupper T 80015408 1c
+strncpy T 80015424 4c
+strcpy T 80015470 24
+strcat T 80015494 60
+strlen T 800154f4 3c
+strchr T 80015530 58
+strstr T 80015588 fc
+strcmp T 80015684 64
+strncmp T 800156e8 7c
+strtok T 80015764 114
+get_arg_in_size T 80015878 c8
+vsnprintf T 80015940 1a44
+memcmp T 80017384 
+memset T 800173b8 
+__CTOR_LIST__ D 80018030 
+__CTOR_END__ D 80018038 
+__DTOR_LIST__ D 80018040 
+__DTOR_END__ D 80018048 
+light_mtx D 80018048 20
+color_mtx D 80018068 20
+pyr_indices D 80018088 20
+pyr_norms D 800180a8 20
+pyr_verts D 800180c8 20
+cube_indices D 800180e8 30
+cube_norms D 80018118 30
+cube_verts D 80018148 40
+_vsync_rcnt d 80018188 
+_vsync_lasthblank d 8001818c 
+vsynctimeout_msg d 80018190 
+resetgraph_msg d 800181a0 
+enableint_msg d 800181be 
+cbhooks_msg d 800181de 
+abouttoen_msg d 80018203 
+sr_msg d 80018229 
+psxgpu_credits D 8001823b 
+dbugfont D 80018288 840
+_matrix_stack d 80018ac8 
+_norm_table D 80018ae8 
+_irq_func_table D 80018c68 
+_custom_exit D 80018c98 
+__bss_start D 80018ccc 
+numTracks B 80018ccc 4
+nextTrack B 80018cd0 4
+modelData B 80018cd4 4
+screen_clip B 80018cd8 8
+db_nextpri B 80018ce0 4
+db_active B 80018ce4 4
+_gpu_current_field B 80018ce8 4
+_hooks_installed B 80018cec 4
+_vsync_cb_func B 80018cf0 4
+_gpu_standard B 80018cf4 4
+_cd_complt_wait B 80018cf8 1
+_cd_ack_wait B 80018cf9 1
+_cd_last_int B 80018cfa 1
+_cd_last_mode B 80018cfb 1
+_cd_sync_cb B 80018cfc 4
+_cd_status B 80018d00 1
+_cd_callback_int1_data B 80018d04 4
+_cd_callback_int4 B 80018d08 4
+_cd_last_cmd B 80018d0c 1
+_malloc_addr B 80018d10 4
+_malloc_size B 80018d14 4
+tim B 80018d20 14
+pad_buff B 80018d34 44
+db B 80018d78 120e0
+_gp d 80020cc0 
+_font_clut B 8002ae58 2
+_font_tpage B 8002ae5a 2
+_nstreams b 8002ae5c 4
+_stream b 8002ae60 e0
+_cd_iso_error b 8002af40 4
+_cd_iso_directory_len b 8002af44 4
+_cd_iso_directory_buff b 8002af48 4
+_cd_iso_pathtable_buff b 8002af4c 4
+_cd_iso_descriptor_buff b 8002af50 800
+_cd_iso_last_dir_lba b 8002b750 4
+_cd_read_cb B 8002b754 4
+_cd_read_counter B 8002b758 4
+_cd_read_sector_sz B 8002b75c 4
+_cd_read_oldcb B 8002b760 4
+_cd_read_result B 8002b764 8
+_cd_read_addr B 8002b76c 4
+_cd_sector_count B 8002b770 4
+_cd_media_changed B 8002b774 4
+_cd_last_sector_count B 8002b778 4
+_cd_last_read_addr B 8002b77c 4
+_cd_last_setloc B 8002b780 4
+_cd_result_ptr B 8002b784 4
+_arg_string_buffer b 8002b788 84
+_argv_buffer b 8002b80c 40
+__argv B 8002b84c 4
+__argc B 8002b850 4
+_strtok_endpos b 8002b854 4
+_strtok_curpos b 8002b858 4
+_isr_stack B 8002b860 1004
+_end B 8002c864 

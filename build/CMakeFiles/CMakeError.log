@@ -1,0 +1,12 @@
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/psnoobsdk/bin/mipsel-none-elf-g++.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/ld.exe: cannot find -lstdc++
+c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/ld.exe: cannot find -lm
+collect2.exe: error: ld returned 1 exit status
+
+

@@ -1,0 +1,4 @@
+C:/psnoobsdk/projects/SataScram/build/CMakeFiles/template.dir
+C:/psnoobsdk/projects/SataScram/build/CMakeFiles/iso.dir
+C:/psnoobsdk/projects/SataScram/build/CMakeFiles/edit_cache.dir
+C:/psnoobsdk/projects/SataScram/build/CMakeFiles/rebuild_cache.dir

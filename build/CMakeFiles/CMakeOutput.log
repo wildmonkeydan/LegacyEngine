@@ -1,0 +1,263 @@
+The target system is: PlayStation -  - mipsel
+The host system is: Windows - 10.0.19044 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: C:/psnoobsdk/bin/mipsel-none-elf-gcc.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/ld.exe: warning: cannot find entry symbol _start; defaulting to 0000000000400060
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "C:/psnoobsdk/projects/SataScram/build/CMakeFiles/3.22.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/psnoobsdk/bin/mipsel-none-elf-g++.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+
+The CXX compiler identification is GNU, found in "C:/psnoobsdk/projects/SataScram/build/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.o"
+
+Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+mipsel-none-elf-gcc.exe (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: C:/psnoobsdk/projects/SataScram/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/msys64/mingw64/bin/ninja.exe cmTC_ace5d && [1/2] Building C object CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj
+Using built-in specs.
+COLLECT_GCC=C:\psnoobsdk\bin\mipsel-none-elf-gcc.exe
+Target: mipsel-none-elf
+Configured with: ../gcc-11.1.0/configure --prefix=/home/runner/work/PSn00bSDK/PSn00bSDK/gcc/windows --build=x86_64-linux-gnu --host=x86_64-w64-mingw32 --target=mipsel-none-elf --disable-docs --disable-nls --disable-libada --disable-libssp --disable-libquadmath --disable-libstdc++-v3 --with-float=soft --enable-languages=c,c++ --with-gnu-as --with-gnu-ld
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 11.1.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_ace5d.dir/'
+ c:/psnoobsdk/bin/../libexec/gcc/mipsel-none-elf/11.1.0/cc1.exe -quiet -v -imultilib soft-float -iprefix c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/ C:/msys64/mingw64/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_ace5d.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -msoft-float -version -o C:\Users\dantu\AppData\Local\Temp\cctmfIeZ.s
+GNU C17 (GCC) version 11.1.0 (mipsel-none-elf)
+	compiled by GNU C version 9.3-win32 20200320, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/sys-include"
+ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include"
+ignoring duplicate directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/include"
+ignoring duplicate directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/include-fixed"
+ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/sys-include"
+ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/include
+ c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/include-fixed
+End of search list.
+GNU C17 (GCC) version 11.1.0 (mipsel-none-elf)
+	compiled by GNU C version 9.3-win32 20200320, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: f4e20f4eb2cd1ba8a5e6ba67751ec33e
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_ace5d.dir/'
+ c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/as.exe -v -EL -O1 -mabi=32 -msoft-float -o CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj C:\Users\dantu\AppData\Local\Temp\cctmfIeZ.s
+GNU assembler version 2.36 (mipsel-none-elf) using BFD version (GNU Binutils) 2.36
+COMPILER_PATH=c:/psnoobsdk/bin/../libexec/gcc/mipsel-none-elf/11.1.0/;c:/psnoobsdk/bin/../libexec/gcc/;c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/
+LIBRARY_PATH=c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/soft-float/;c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/;c:/psnoobsdk/bin/../lib/gcc/;c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.'
+[2/2] Linking C static library libcmTC_ace5d.a
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/include]
+    add: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/include-fixed]
+  end of search list found
+  collapse include dir [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/include] ==> [C:/psnoobsdk/lib/gcc/mipsel-none-elf/11.1.0/include]
+  collapse include dir [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/include-fixed] ==> [C:/psnoobsdk/lib/gcc/mipsel-none-elf/11.1.0/include-fixed]
+  implicit include dirs: [C:/psnoobsdk/lib/gcc/mipsel-none-elf/11.1.0/include;C:/psnoobsdk/lib/gcc/mipsel-none-elf/11.1.0/include-fixed]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mipsel-none-elf-ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/psnoobsdk/projects/SataScram/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):C:/msys64/mingw64/bin/ninja.exe cmTC_ace5d && [1/2] Building C object CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\psnoobsdk\bin\mipsel-none-elf-gcc.exe]
+  ignore line: [Target: mipsel-none-elf]
+  ignore line: [Configured with: ../gcc-11.1.0/configure --prefix=/home/runner/work/PSn00bSDK/PSn00bSDK/gcc/windows --build=x86_64-linux-gnu --host=x86_64-w64-mingw32 --target=mipsel-none-elf --disable-docs --disable-nls --disable-libada --disable-libssp --disable-libquadmath --disable-libstdc++-v3 --with-float=soft --enable-languages=c,c++ --with-gnu-as --with-gnu-ld]
+  ignore line: [Thread model: single]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 11.1.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_ace5d.dir/']
+  ignore line: [ c:/psnoobsdk/bin/../libexec/gcc/mipsel-none-elf/11.1.0/cc1.exe -quiet -v -imultilib soft-float -iprefix c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/ C:/msys64/mingw64/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_ace5d.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -msoft-float -version -o C:\Users\dantu\AppData\Local\Temp\cctmfIeZ.s]
+  ignore line: [GNU C17 (GCC) version 11.1.0 (mipsel-none-elf)]
+  ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/sys-include"]
+  ignore line: [ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include"]
+  ignore line: [ignoring duplicate directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/include"]
+  ignore line: [ignoring duplicate directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/sys-include"]
+  ignore line: [ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/include]
+  ignore line: [ c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/include-fixed]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (GCC) version 11.1.0 (mipsel-none-elf)]
+  ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: f4e20f4eb2cd1ba8a5e6ba67751ec33e]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_ace5d.dir/']
+  ignore line: [ c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/as.exe -v -EL -O1 -mabi=32 -msoft-float -o CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj C:\Users\dantu\AppData\Local\Temp\cctmfIeZ.s]
+  ignore line: [GNU assembler version 2.36 (mipsel-none-elf) using BFD version (GNU Binutils) 2.36]
+  ignore line: [COMPILER_PATH=c:/psnoobsdk/bin/../libexec/gcc/mipsel-none-elf/11.1.0/]
+  ignore line: [c:/psnoobsdk/bin/../libexec/gcc/]
+  ignore line: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/]
+  ignore line: [LIBRARY_PATH=c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/soft-float/]
+  ignore line: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/]
+  ignore line: [c:/psnoobsdk/bin/../lib/gcc/]
+  ignore line: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_ace5d.dir/CMakeCCompilerABI.c.']
+  ignore line: [[2/2] Linking C static library libcmTC_ace5d.a]
+  ignore line: []
+  ignore line: []
+  implicit libs: []
+  implicit objs: []
+  implicit dirs: []
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: C:/psnoobsdk/projects/SataScram/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/msys64/mingw64/bin/ninja.exe cmTC_10764 && [1/2] Building CXX object CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj
+Using built-in specs.
+COLLECT_GCC=C:\psnoobsdk\bin\mipsel-none-elf-g++.exe
+Target: mipsel-none-elf
+Configured with: ../gcc-11.1.0/configure --prefix=/home/runner/work/PSn00bSDK/PSn00bSDK/gcc/windows --build=x86_64-linux-gnu --host=x86_64-w64-mingw32 --target=mipsel-none-elf --disable-docs --disable-nls --disable-libada --disable-libssp --disable-libquadmath --disable-libstdc++-v3 --with-float=soft --enable-languages=c,c++ --with-gnu-as --with-gnu-ld
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 11.1.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_10764.dir/'
+ c:/psnoobsdk/bin/../libexec/gcc/mipsel-none-elf/11.1.0/cc1plus.exe -quiet -v -imultilib soft-float -iprefix c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/ C:/msys64/mingw64/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_10764.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -msoft-float -version -o C:\Users\dantu\AppData\Local\Temp\ccJzhZMZ.s
+GNU C++17 (GCC) version 11.1.0 (mipsel-none-elf)
+	compiled by GNU C version 9.3-win32 20200320, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0"
+ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0/mipsel-none-elf/soft-float"
+ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0/backward"
+ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/sys-include"
+ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include"
+ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0"
+ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0/mipsel-none-elf/soft-float"
+ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0/backward"
+ignoring duplicate directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/include"
+ignoring duplicate directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/include-fixed"
+ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/sys-include"
+ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/include
+ c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/include-fixed
+End of search list.
+GNU C++17 (GCC) version 11.1.0 (mipsel-none-elf)
+	compiled by GNU C version 9.3-win32 20200320, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 4776eb83a07f31c04c1bf3df8334067c
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_10764.dir/'
+ c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/as.exe -v -EL -O1 -mabi=32 -msoft-float -o CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\dantu\AppData\Local\Temp\ccJzhZMZ.s
+GNU assembler version 2.36 (mipsel-none-elf) using BFD version (GNU Binutils) 2.36
+COMPILER_PATH=c:/psnoobsdk/bin/../libexec/gcc/mipsel-none-elf/11.1.0/;c:/psnoobsdk/bin/../libexec/gcc/;c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/
+LIBRARY_PATH=c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/soft-float/;c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/;c:/psnoobsdk/bin/../lib/gcc/;c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.'
+[2/2] Linking CXX static library libcmTC_10764.a
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/include]
+    add: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/include-fixed]
+  end of search list found
+  collapse include dir [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/include] ==> [C:/psnoobsdk/lib/gcc/mipsel-none-elf/11.1.0/include]
+  collapse include dir [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/include-fixed] ==> [C:/psnoobsdk/lib/gcc/mipsel-none-elf/11.1.0/include-fixed]
+  implicit include dirs: [C:/psnoobsdk/lib/gcc/mipsel-none-elf/11.1.0/include;C:/psnoobsdk/lib/gcc/mipsel-none-elf/11.1.0/include-fixed]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mipsel-none-elf-ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/psnoobsdk/projects/SataScram/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):C:/msys64/mingw64/bin/ninja.exe cmTC_10764 && [1/2] Building CXX object CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\psnoobsdk\bin\mipsel-none-elf-g++.exe]
+  ignore line: [Target: mipsel-none-elf]
+  ignore line: [Configured with: ../gcc-11.1.0/configure --prefix=/home/runner/work/PSn00bSDK/PSn00bSDK/gcc/windows --build=x86_64-linux-gnu --host=x86_64-w64-mingw32 --target=mipsel-none-elf --disable-docs --disable-nls --disable-libada --disable-libssp --disable-libquadmath --disable-libstdc++-v3 --with-float=soft --enable-languages=c,c++ --with-gnu-as --with-gnu-ld]
+  ignore line: [Thread model: single]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 11.1.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_10764.dir/']
+  ignore line: [ c:/psnoobsdk/bin/../libexec/gcc/mipsel-none-elf/11.1.0/cc1plus.exe -quiet -v -imultilib soft-float -iprefix c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/ C:/msys64/mingw64/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_10764.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -msoft-float -version -o C:\Users\dantu\AppData\Local\Temp\ccJzhZMZ.s]
+  ignore line: [GNU C++17 (GCC) version 11.1.0 (mipsel-none-elf)]
+  ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0"]
+  ignore line: [ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0/mipsel-none-elf/soft-float"]
+  ignore line: [ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0/backward"]
+  ignore line: [ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/sys-include"]
+  ignore line: [ignoring nonexistent directory "c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include"]
+  ignore line: [ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0"]
+  ignore line: [ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0/mipsel-none-elf/soft-float"]
+  ignore line: [ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include/c++/11.1.0/backward"]
+  ignore line: [ignoring duplicate directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/include"]
+  ignore line: [ignoring duplicate directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/include-fixed"]
+  ignore line: [ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/sys-include"]
+  ignore line: [ignoring nonexistent directory "c:/psnoobsdk/lib/gcc/../../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/include]
+  ignore line: [ c:\psnoobsdk\bin\../lib/gcc/mipsel-none-elf/11.1.0/include-fixed]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++17 (GCC) version 11.1.0 (mipsel-none-elf)]
+  ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 4776eb83a07f31c04c1bf3df8334067c]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_10764.dir/']
+  ignore line: [ c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/as.exe -v -EL -O1 -mabi=32 -msoft-float -o CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\dantu\AppData\Local\Temp\ccJzhZMZ.s]
+  ignore line: [GNU assembler version 2.36 (mipsel-none-elf) using BFD version (GNU Binutils) 2.36]
+  ignore line: [COMPILER_PATH=c:/psnoobsdk/bin/../libexec/gcc/mipsel-none-elf/11.1.0/]
+  ignore line: [c:/psnoobsdk/bin/../libexec/gcc/]
+  ignore line: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/bin/]
+  ignore line: [LIBRARY_PATH=c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/soft-float/]
+  ignore line: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/]
+  ignore line: [c:/psnoobsdk/bin/../lib/gcc/]
+  ignore line: [c:/psnoobsdk/bin/../lib/gcc/mipsel-none-elf/11.1.0/../../../../mipsel-none-elf/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-msoft-float' '-dumpdir' 'CMakeFiles/cmTC_10764.dir/CMakeCXXCompilerABI.cpp.']
+  ignore line: [[2/2] Linking CXX static library libcmTC_10764.a]
+  ignore line: []
+  ignore line: []
+  implicit libs: []
+  implicit objs: []
+  implicit dirs: []
+  implicit fwks: []
+
+
