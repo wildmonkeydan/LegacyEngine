@@ -258,6 +258,7 @@ int main() {
 	setVector(&cam_rot, 0, 0, 0);
 
 	printf("\n%d",model->h->numMat);
+	printf("\n%d  %d", tim.mode, tim.prect->x);
 
 
 	// Main loop
@@ -561,7 +562,26 @@ int main() {
 
 		VECTOR modelPos = { 2000,-200,2000 };
 
-		DrawModel_Unlit(model, &mtx, &modelPos, &rot, screen_clip, db[db_active].ot, db_nextpri, getTPage(tim.mode & 0x3, 0, tim.prect->x, tim.prect->y),*tim.caddr);
+		SPRT* sprt = (SPRT*)db_nextpri;
+
+		setSprt(sprt);
+		setWH(sprt, 15, 17);                  // Initialize the primitive (very important)
+		setXY0(sprt, 48, 215);           // Position the sprite at (48,48)
+		setUV0(sprt,                    // Set UV coordinates
+			0,
+			0);
+		setClut(sprt,                   // Set CLUT coordinates to sprite
+			tim.crect->x,
+			tim.crect->y);
+		setRGB0(sprt,                   // Set primitive color
+			128, 128, 128);
+
+		addPrim(db[db_active].ot + (p >> 2), sprt);
+		sprt++;
+		db_nextpri = (char*)sprt;
+
+
+		DrawModel_Unlit(model, &mtx, &modelPos, &rot, screen_clip, db[db_active].ot, db_nextpri, tim);
 
 		DR_TPAGE* tprit = (DR_TPAGE*)db_nextpri;
 
@@ -570,7 +590,7 @@ int main() {
 		tprit++;
 		
 
-		db_nextpri = (char*)tprit;
+		db_nextpri = (char*)tprit;		
 
 		// Swap buffers and draw the primitives
 		display();

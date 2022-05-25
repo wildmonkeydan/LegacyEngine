@@ -122,12 +122,12 @@ void LoadModel(unsigned long* data, MODEL **model) {
 
     printf("\nInitialized");
     printf("\nModel Info:\nUntextured tris: %d\nTextured tris: %d\nVerts: %d\nNorms: %d\nUV's: %d", (*model)->h->numUntex, (*model)->h->numTex, (*model)->h->numVerts, (*model)->h->numNorms, (*model)->h->numUV);
-    printf("\nFirst Face - x: %d  y: %d  z: %d  -  Norm: %d", (*model)->texFaces[0].v[0], (*model)->texFaces[0].v[1], (*model)->texFaces[0].v[2], (*model)->texFaces[0].n);
+    printf("\nSecond Face - x: %d  y: %d  z: %d  -  Norm: %d", (*model)->texFaces[1].v[0], (*model)->texFaces[1].v[1], (*model)->texFaces[1].v[2], (*model)->texFaces[1].n);
     printf("\nSecond Vert - x: %d  y: %d  z: %d", (*model)->vIndex[1].vx, (*model)->vIndex[1].vy, (*model)->vIndex[1].vz);
     printf("\n%d", (*model)->uvIndex[0].u);
 }
 
-void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT screen_clip, u_long* OT, char* db_nextpri, u_long tpage, u_long clutid) {
+void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT screen_clip, u_long* OT, char* db_nextpri, TIM_IMAGE tex) {
     int i, p;
     POLY_F3* pol3;
     POLY_FT3* polt3;
@@ -212,6 +212,8 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
             gte_avsz4();
             gte_stotz(&p);
 
+            setRGB0(pol3, model->matIndex[model->untexFaces[i].mat].r, model->matIndex[model->untexFaces[i].mat].g, model->matIndex[model->untexFaces[i].mat].b);
+
             // Sort primitive to the ordering table
             addPrim(OT + (p >> 2), pol3);
 
@@ -233,13 +235,11 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
             &model->vIndex[model->texFaces[i].v[0]-1],
             &model->vIndex[model->texFaces[i].v[1]-1],
             &model->vIndex[model->texFaces[i].v[2]-1]);
-        printf("verts");
         // Rotation, Translation and Perspective Triple
         gte_rtpt();
 
         // Compute normal clip for backface culling
         gte_nclip();
-        printf("backface");
 
         // Get result
         gte_stopz(&p);
@@ -258,7 +258,7 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
             continue;
 
         // Initialize a tri primitive
-        setPolyFT3(polt3);
+        
 
         // Set the projected vertices to the primitive
         gte_stsxy0(&polt3->x0);
@@ -279,7 +279,6 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
         SVECTOR norm = (SVECTOR){ model->nIndex[model->texFaces[i].n - 1].vx, model->nIndex[model->texFaces[i].n - 1].vy, model->nIndex[model->texFaces[i].n - 1].vz, 0 };
         // Load the face normal
         gte_ldv0(&norm);
-        printf("norm");
 
         gte_avsz4();
         gte_stotz(&p);
@@ -287,9 +286,10 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
         
 
         setUV3(polt3, model->uvIndex[model->texFaces[i].t[0] - 1].u, model->uvIndex[model->texFaces[i].t[0] - 1].v, model->uvIndex[model->texFaces[i].t[1] - 1].u, model->uvIndex[model->texFaces[i].t[1] - 1].v, model->uvIndex[model->texFaces[i].t[2] - 1].u, model->uvIndex[model->texFaces[i].t[2] - 1].v);
-        polt3->clut = clutid;
-        polt3->tpage = tpage;
-
+        setClut(polt3, tex.crect->x, tex.crect->y);
+        setTPage(polt3, tex.mode & 0x3, 0, tex.prect->x, tex.prect->y);
+        setRGB0(polt3, 128, 128, 128);
+        setPolyFT3(polt3);
         // Sort primitive to the ordering table
         addPrim(OT + (p >> 2), polt3);
 
