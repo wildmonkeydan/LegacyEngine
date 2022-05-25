@@ -296,6 +296,8 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
         // Advance to make another primitive
         polt3++;
 
+        //printf("\nTri %d:  x1: %d y1: %d z1: %d  x2: %d y2: %d z2: %d  x3: %d y3: %d z3: %d", i, model->vIndex[model->texFaces[i].v[0] - 1].vx, model->vIndex[model->texFaces[i].v[0] - 1].vy, model->vIndex[model->texFaces[i].v[0] - 1].vz, model->vIndex[model->texFaces[i].v[1] - 1].vx, model->vIndex[model->texFaces[i].v[1] - 1].vy, model->vIndex[model->texFaces[i].v[1] - 1].vz, model->vIndex[model->texFaces[i].v[2] - 1].vx, model->vIndex[model->texFaces[i].v[2] - 1].vy, model->vIndex[model->texFaces[i].v[2] - 1].vz);
+
     }
 
     // Update nextpri
