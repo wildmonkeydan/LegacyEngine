@@ -18,28 +18,28 @@ typedef union {
     short s;
 } raw_short;
 
-void LoadModel(unsigned long* data, MODEL* model) {
+void LoadModel(unsigned long* data, MODEL **model) {
 	HEADER* header = (HEADER*)data;
 	printf("\nModel Info:\nUntextured tris: %d\nTextured tris: %d\nVerts: %d\nNorms: %d\nUV's: %d", header->numUntex, header->numTex, header->numVerts, header->numNorms, header->numUV);
     int fileSize = 11 + (header->numVerts * sizeof(VECTOR)) + (header->numNorms * sizeof(VECTOR)) + (header->numMat * sizeof(COLVECTOR)) + (header->numUV * sizeof(UV_COORDS)) + (header->numUntex * sizeof(FTRI)) + (header->numTex * sizeof(FTTRI));
-	model = malloc(fileSize);
+	*model = malloc(fileSize);
 
-    model->h = malloc(11);
-    model->vIndex = malloc(header->numVerts * sizeof(VECTOR));
-    model->nIndex = malloc(header->numNorms * sizeof(VECTOR));
-    model->matIndex = malloc(header->numMat * sizeof(COLVECTOR));
-    model->uvIndex = malloc(header->numUV * sizeof(UV_COORDS));
-    model->untexFaces = malloc(header->numUntex * sizeof(FTRI));
-    model->texFaces = malloc(header->numTex * sizeof(FTTRI));
+    (*model)->h = malloc(11);
+    (*model)->vIndex = malloc(header->numVerts * sizeof(VECTOR));
+    (*model)->nIndex = malloc(header->numNorms * sizeof(VECTOR));
+    (*model)->matIndex = malloc(header->numMat * sizeof(COLVECTOR));
+    (*model)->uvIndex = malloc(header->numUV * sizeof(UV_COORDS));
+    (*model)->untexFaces = malloc(header->numUntex * sizeof(FTRI));
+    (*model)->texFaces = malloc(header->numTex * sizeof(FTTRI));
 
-    model->h = header;
+    (*model)->h = header;
     unsigned char* byteData = (unsigned char *)data;
     int index = 11;
     raw_int verts[3] = { 0 };
     raw_short triInfo[7] = { 0 };
     uint8_t counter = 0;
 
-    for (int i = 0; i < model->h->numVerts; i++) {
+    for (int i = 0; i < (*model)->h->numVerts; i++) {
             for (int a = 0; a < 3; a++) {
                 verts[a].c[0] = byteData[index];
                 index++;
@@ -51,12 +51,12 @@ void LoadModel(unsigned long* data, MODEL* model) {
                 index++;
             }
 
-        model->vIndex[i].vx = verts[0].i;
-        model->vIndex[i].vy = verts[1].i;
-        model->vIndex[i].vz = verts[2].i;
+        (*model)->vIndex[i].vx = verts[0].i;
+        (*model)->vIndex[i].vy = verts[1].i;
+        (*model)->vIndex[i].vz = verts[2].i;
     }
 
-    for (int i = 0; i < model->h->numNorms; i++) {
+    for (int i = 0; i < (*model)->h->numNorms; i++) {
         for (int a = 0; a < 3; a++) {
             verts[a].c[0] = byteData[index];
             index++;
@@ -68,66 +68,66 @@ void LoadModel(unsigned long* data, MODEL* model) {
             index++;
         }
 
-        model->nIndex[i].vx = verts[0].i;
-        model->nIndex[i].vy = verts[1].i;
-        model->nIndex[i].vz = verts[2].i;
+        (*model)->nIndex[i].vx = verts[0].i;
+        (*model)->nIndex[i].vy = verts[1].i;
+        (*model)->nIndex[i].vz = verts[2].i;
     }
 
-    for (int i = 0; i < model->h->numMat; i++) {
-        model->matIndex[i].r = byteData[index];
+    for (int i = 0; i < (*model)->h->numMat; i++) {
+        (*model)->matIndex[i].r = byteData[index];
         index++;
-        model->matIndex[i].b = byteData[index];
+        (*model)->matIndex[i].b = byteData[index];
         index++;
-        model->matIndex[i].g = byteData[index];
-        index++;
-    }
-
-    for (int i = 0; i < model->h->numUV; i++) {
-        model->uvIndex[i].u = (uint8_t)byteData[index];
-        index++;
-        model->uvIndex[i].v = (uint8_t)byteData[index];
+        (*model)->matIndex[i].g = byteData[index];
         index++;
     }
 
-    for (int i = 0; i < model->h->numUntex; i++) {
+    for (int i = 0; i < (*model)->h->numUV; i++) {
+        (*model)->uvIndex[i].u = (uint8_t)byteData[index];
+        index++;
+        (*model)->uvIndex[i].v = (uint8_t)byteData[index];
+        index++;
+    }
+
+    for (int i = 0; i < (*model)->h->numUntex; i++) {
         for (int a = 0; a < 4; a++) {
             triInfo[a].c[0] = byteData[index];
             index++;
             triInfo[a].c[1] = byteData[index];
             index++;
         }
-        model->untexFaces[i].v[0] = triInfo[0].s;
-        model->untexFaces[i].v[1] = triInfo[1].s;
-        model->untexFaces[i].v[2] = triInfo[2].s;
-        model->untexFaces[i].n = triInfo[3].s;
-        model->untexFaces[i].mat = byteData[index];
+        (*model)->untexFaces[i].v[0] = triInfo[0].s;
+        (*model)->untexFaces[i].v[1] = triInfo[1].s;
+        (*model)->untexFaces[i].v[2] = triInfo[2].s;
+        (*model)->untexFaces[i].n = triInfo[3].s;
+        (*model)->untexFaces[i].mat = byteData[index];
         index++;
     }
 
-    for (int i = 0; i < model->h->numTex; i++) {
+    for (int i = 0; i < (*model)->h->numTex; i++) {
         for (int a = 0; a < 7; a++) {
             triInfo[a].c[0] = byteData[index];
             index++;
             triInfo[a].c[1] = byteData[index];
             index++;
         }
-        model->texFaces[i].v[0] = triInfo[0].s;
-        model->texFaces[i].v[1] = triInfo[1].s;
-        model->texFaces[i].v[2] = triInfo[2].s;
-        model->texFaces[i].n = triInfo[3].s;
-        model->texFaces[i].t[0] = triInfo[4].s;
-        model->texFaces[i].t[1] = triInfo[5].s;
-        model->texFaces[i].t[2] = triInfo[6].s;
+        (*model)->texFaces[i].v[0] = triInfo[0].s;
+        (*model)->texFaces[i].v[1] = triInfo[1].s;
+        (*model)->texFaces[i].v[2] = triInfo[2].s;
+        (*model)->texFaces[i].n = triInfo[3].s;
+        (*model)->texFaces[i].t[0] = triInfo[4].s;
+        (*model)->texFaces[i].t[1] = triInfo[5].s;
+        (*model)->texFaces[i].t[2] = triInfo[6].s;
     }
 
     printf("\nInitialized");
-    printf("\nModel Info:\nUntextured tris: %d\nTextured tris: %d\nVerts: %d\nNorms: %d\nUV's: %d", model->h->numUntex, model->h->numTex, model->h->numVerts, model->h->numNorms, model->h->numUV);
-    printf("\nFirst Face - x: %d  y: %d  z: %d  -  Norm: %d", model->texFaces[0].v[0], model->texFaces[0].v[1], model->texFaces[0].v[2], model->texFaces[0].n);
-    printf("\nSecond Vert - x: %d  y: %d  z: %d", model->vIndex[1].vx, model->vIndex[1].vy, model->vIndex[1].vz);
-    printf("\n%d", model->uvIndex[0].u);
+    printf("\nModel Info:\nUntextured tris: %d\nTextured tris: %d\nVerts: %d\nNorms: %d\nUV's: %d", (*model)->h->numUntex, (*model)->h->numTex, (*model)->h->numVerts, (*model)->h->numNorms, (*model)->h->numUV);
+    printf("\nFirst Face - x: %d  y: %d  z: %d  -  Norm: %d", (*model)->texFaces[0].v[0], (*model)->texFaces[0].v[1], (*model)->texFaces[0].v[2], (*model)->texFaces[0].n);
+    printf("\nSecond Vert - x: %d  y: %d  z: %d", (*model)->vIndex[1].vx, (*model)->vIndex[1].vy, (*model)->vIndex[1].vz);
+    printf("\n%d", (*model)->uvIndex[0].u);
 }
 
-void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT screen_clip, u_long OT, char* db_nextpri) {
+void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT screen_clip, u_long* OT, char* db_nextpri, u_long tpage, u_long clutid) {
     int i, p;
     POLY_F3* pol3;
     POLY_FT3* polt3;
@@ -155,6 +155,7 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
     pol3 = (POLY_F3*)db_nextpri;
     
     if (model->h->numUntex != 0) {
+        printf("\nUntex");
         for (i = 0; i < model->h->numUntex; i++) {
 
             // Load the first 3 vertices of a quad to the GTE 
@@ -232,12 +233,13 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
             &model->vIndex[model->texFaces[i].v[0]-1],
             &model->vIndex[model->texFaces[i].v[1]-1],
             &model->vIndex[model->texFaces[i].v[2]-1]);
-
+        printf("verts");
         // Rotation, Translation and Perspective Triple
         gte_rtpt();
 
         // Compute normal clip for backface culling
         gte_nclip();
+        printf("backface");
 
         // Get result
         gte_stopz(&p);
@@ -263,7 +265,7 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
         gte_stsxy1(&polt3->x1);
         gte_stsxy2(&polt3->x2);
 
-        // Test if quad is off-screen, discard if so
+        // Test if tri is off-screen, discard if so
         if (tri_clip(&screen_clip,
             (DVECTOR*)&polt3->x0, (DVECTOR*)&polt3->x1,
             (DVECTOR*)&polt3->x2))
@@ -277,12 +279,16 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
         SVECTOR norm = (SVECTOR){ model->nIndex[model->texFaces[i].n - 1].vx, model->nIndex[model->texFaces[i].n - 1].vy, model->nIndex[model->texFaces[i].n - 1].vz, 0 };
         // Load the face normal
         gte_ldv0(&norm);
+        printf("norm");
 
         gte_avsz4();
         gte_stotz(&p);
 
+        
+
         setUV3(polt3, model->uvIndex[model->texFaces[i].t[0] - 1].u, model->uvIndex[model->texFaces[i].t[0] - 1].v, model->uvIndex[model->texFaces[i].t[1] - 1].u, model->uvIndex[model->texFaces[i].t[1] - 1].v, model->uvIndex[model->texFaces[i].t[2] - 1].u, model->uvIndex[model->texFaces[i].t[2] - 1].v);
-   
+        polt3->clut = clutid;
+        polt3->tpage = tpage;
 
         // Sort primitive to the ordering table
         addPrim(OT + (p >> 2), polt3);

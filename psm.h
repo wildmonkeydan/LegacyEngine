@@ -40,5 +40,5 @@ typedef struct MODEL {
 	FTTRI* texFaces;
 } MODEL; //PSM file struct
 
-void LoadModel(unsigned long* data, MODEL* model);
-void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT screen_clip, u_long OT, char* db_nextpri);
+void LoadModel(unsigned long* data, MODEL** model);
+void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT screen_clip, u_long* OT, char* db_nextpri, u_long tpage, u_long clutid);

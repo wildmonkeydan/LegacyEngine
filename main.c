@@ -237,7 +237,7 @@ int main() {
 	// Init graphics and GTE
 	init();
 
-	//LoadModel(modelData, model);
+	LoadModel(modelData, &model);
 
 
 	// Set coordinates to the vertex array for the floor
@@ -257,7 +257,7 @@ int main() {
 	setVector(&cam_pos, 0, ONE * -200, 0);
 	setVector(&cam_rot, 0, 0, 0);
 
-	//printf("%d",model->h->numVerts);
+	printf("\n%d",model->h->numMat);
 
 
 	// Main loop
@@ -549,6 +549,7 @@ int main() {
 		// Sort cube
 		sort_cube(&mtx, &pos, &rot);
 		sort_pyrimid(&mtx, &posp, &rot);
+		
 
 		// Make the cube SPEEN
 		rot.vx += 8;
@@ -560,13 +561,14 @@ int main() {
 
 		VECTOR modelPos = { 2000,-200,2000 };
 
-		//DrawModel_Unlit(model, &mtx, &modelPos, &rot, screen_clip, db[db_active].ot, db_nextpri);
+		DrawModel_Unlit(model, &mtx, &modelPos, &rot, screen_clip, db[db_active].ot, db_nextpri, getTPage(tim.mode & 0x3, 0, tim.prect->x, tim.prect->y),*tim.caddr);
 
 		DR_TPAGE* tprit = (DR_TPAGE*)db_nextpri;
 
 		setDrawTPage(tprit, 0, 0, getTPage(tim.mode & 0x3, 0, tim.prect->x, tim.prect->y));
 		addPrim(db[db_active].ot + (p >> 2), tprit);
 		tprit++;
+		
 
 		db_nextpri = (char*)tprit;
 
