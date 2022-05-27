@@ -51,11 +51,11 @@
 #include "psm.h"
 
 // Region definition
-#define REGION          MODE_NTSC 
+#define REGION          MODE_PAL 
 
  // OT and Packet Buffer sizes
 #define OT_LEN			1024
-#define PACKET_LEN		32768
+#define PACKET_LEN		50768
 
 // Screen resolution
 #define SCREEN_XRES		320
@@ -65,7 +65,7 @@
 #define CENTERX			SCREEN_XRES>>1
 #define CENTERY			SCREEN_YRES>>1
 
-#define SPU_CD_VOL_L *((volatile uint16_t *) (0x1f801db0))
+#define SPU_CD_VOL_L *((volatile uint16_t *) (0x1f801db0)) 
 #define SPU_CD_VOL_R *((volatile uint16_t *) (0x1f801db2))
 
 
@@ -314,9 +314,9 @@ int main() {
 				if (!(pad->btn & PAD_TRIANGLE)) {
 
 					// Move forward
-					cam_pos.vx -= ((isin(trot.vy) * icos(trot.vx)) >> 12) << 2;
-					cam_pos.vy += isin(trot.vx) << 2;
-					cam_pos.vz += ((icos(trot.vy) * icos(trot.vx)) >> 12) << 2;
+					cam_pos.vx -= ((isin(trot.vy) * icos(trot.vx)) >> 12) << 4;
+					cam_pos.vy += isin(trot.vx) << 4;
+					cam_pos.vz += ((icos(trot.vy) * icos(trot.vx)) >> 12) << 4;
 
 				}
 				else if (!(pad->btn & PAD_CROSS)) {
@@ -476,7 +476,7 @@ int main() {
 		gte_SetTransMatrix(&mtx);
 
 		// Draw the floor
-		pol4 = (POLY_F4*)db_nextpri;
+		/*pol4 = (POLY_F4*)db_nextpri;
 
 		for (py = 0; py < 16; py++) {
 			for (px = 0; px < 16; px++) {
@@ -534,7 +534,7 @@ int main() {
 
 		// Update nextpri variable (very important)
 		db_nextpri = (char*)pol4;
-
+		*/
 
 		// Position the cube going around the floor bouncily
 		setVector(&pos,
@@ -553,8 +553,9 @@ int main() {
 		
 
 		// Make the cube SPEEN
-		rot.vx += 8;
-		rot.vy += 8;
+		//rot.vx += 8;
+		//rot.vy += 8;
+		//rot.vz += 8;
 
 
 		// Flush text to drawing area
@@ -889,7 +890,7 @@ void init() {
 	SetDefDrawEnv(&db[0].draw, SCREEN_XRES, 0, SCREEN_XRES, SCREEN_YRES);
 
 	// Enable draw area clear and dither processing
-	setRGB0(&db[0].draw, 63, 0, 127);
+	setRGB0(&db[0].draw, 30, 30, 40);
 	db[0].draw.isbg = 1;
 	db[0].draw.dtd = 1;
 
@@ -898,7 +899,7 @@ void init() {
 	SetDefDispEnv(&db[1].disp, SCREEN_XRES, 0, SCREEN_XRES, SCREEN_YRES);
 	SetDefDrawEnv(&db[1].draw, 0, 0, SCREEN_XRES, SCREEN_YRES);
 
-	setRGB0(&db[1].draw, 63, 0, 127);
+	setRGB0(&db[1].draw, 30, 30, 40);
 	db[1].draw.isbg = 1;
 	db[1].draw.dtd = 1;
 

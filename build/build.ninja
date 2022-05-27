@@ -97,10 +97,10 @@ build CMakeFiles/template.dir/psm.c.obj: C_COMPILER__template_Debug C$:/psnoobsd
 #############################################
 # Link the executable template.elf
 
-build template.elf template.exe template.map | ${cmake_ninja_workdir}template.exe ${cmake_ninja_workdir}template.map: CXX_EXECUTABLE_LINKER__template_Debug CMakeFiles/template.dir/clip.c.obj CMakeFiles/template.dir/gteDraw.c.obj CMakeFiles/template.dir/lookat.c.obj CMakeFiles/template.dir/main.c.obj CMakeFiles/template.dir/psm.c.obj | C$:/psnoobsdk/lib/libpsn00b/libpsxgpu.a C$:/psnoobsdk/lib/libpsn00b/libpsxgte.a C$:/psnoobsdk/lib/libpsn00b/libpsxspu.a C$:/psnoobsdk/lib/libpsn00b/libpsxcd.a C$:/psnoobsdk/lib/libpsn00b/libpsxsio.a C$:/psnoobsdk/lib/libpsn00b/libpsxetc.a C$:/psnoobsdk/lib/libpsn00b/libpsxapi.a C$:/psnoobsdk/lib/libpsn00b/liblzp.a C$:/psnoobsdk/lib/libpsn00b/libc.a
+build template.elf template.exe template.map | ${cmake_ninja_workdir}template.exe ${cmake_ninja_workdir}template.map: CXX_EXECUTABLE_LINKER__template_Debug CMakeFiles/template.dir/clip.c.obj CMakeFiles/template.dir/gteDraw.c.obj CMakeFiles/template.dir/lookat.c.obj CMakeFiles/template.dir/main.c.obj CMakeFiles/template.dir/psm.c.obj | C$:/psnoobsdk/lib/libpsn00b/libpsxgpu.a C$:/psnoobsdk/lib/libpsn00b/libpsxgte.a C$:/psnoobsdk/lib/libpsn00b/libpsxspu.a C$:/psnoobsdk/lib/libpsn00b/libpsxcd.a C$:/psnoobsdk/lib/libpsn00b/libpsxpress.a C$:/psnoobsdk/lib/libpsn00b/libpsxsio.a C$:/psnoobsdk/lib/libpsn00b/libpsxetc.a C$:/psnoobsdk/lib/libpsn00b/libpsxapi.a C$:/psnoobsdk/lib/libpsn00b/liblzp.a C$:/psnoobsdk/lib/libpsn00b/libc.a
   FLAGS = -g
   LINK_FLAGS = -TC:/psnoobsdk/lib/libpsn00b/cmake/../ldscripts/exe.ld -G8 -static -nostdlib -Wl,-gc-sections
-  LINK_LIBRARIES = C:/psnoobsdk/lib/libpsn00b/libpsxgpu.a  C:/psnoobsdk/lib/libpsn00b/libpsxgte.a  C:/psnoobsdk/lib/libpsn00b/libpsxspu.a  C:/psnoobsdk/lib/libpsn00b/libpsxcd.a  C:/psnoobsdk/lib/libpsn00b/libpsxsio.a  C:/psnoobsdk/lib/libpsn00b/libpsxetc.a  C:/psnoobsdk/lib/libpsn00b/libpsxapi.a  C:/psnoobsdk/lib/libpsn00b/liblzp.a  C:/psnoobsdk/lib/libpsn00b/libc.a
+  LINK_LIBRARIES = C:/psnoobsdk/lib/libpsn00b/libpsxgpu.a  C:/psnoobsdk/lib/libpsn00b/libpsxgte.a  C:/psnoobsdk/lib/libpsn00b/libpsxspu.a  C:/psnoobsdk/lib/libpsn00b/libpsxcd.a  C:/psnoobsdk/lib/libpsn00b/libpsxpress.a  C:/psnoobsdk/lib/libpsn00b/libpsxsio.a  C:/psnoobsdk/lib/libpsn00b/libpsxetc.a  C:/psnoobsdk/lib/libpsn00b/libpsxapi.a  C:/psnoobsdk/lib/libpsn00b/liblzp.a  C:/psnoobsdk/lib/libpsn00b/libc.a
   OBJECT_DIR = CMakeFiles\template.dir
   POST_BUILD = cmd.exe /C "cd /D C:\psnoobsdk\projects\SataScram\build && C:\psnoobsdk\bin\elf2x.exe -q template.elf template.exe && C:\psnoobsdk\bin\mipsel-none-elf-nm.exe -f posix -l -n template.elf >template.map"
   PRE_LINK = cd .
@@ -143,7 +143,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Custom command for CMakeFiles\iso
 
 build CMakeFiles/iso template.bin template.cue | ${cmake_ninja_workdir}CMakeFiles/iso ${cmake_ninja_workdir}template.bin ${cmake_ninja_workdir}template.cue: CUSTOM_COMMAND template.elf || template.elf
-  COMMAND = cmd.exe /C "cd /D C:\psnoobsdk\projects\SataScram\build && C:\psnoobsdk\bin\mkpsxiso.exe -y -q _gen_iso.xml"
+  COMMAND = cmd.exe /C "cd /D C:\psnoobsdk\projects\SataScram\build && C:\psnoobsdk\bin\mkpsxiso.exe -y cd_image_564895db9e607eda.xml"
   DESC = Building CD image template
   restat = 1
 

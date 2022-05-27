@@ -8,6 +8,8 @@
 
 #define OT_LEN			1024
 
+int triCounter = 0;
+
 typedef union {
     unsigned char c[4];
     int i;
@@ -228,80 +230,90 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
 
     polt3 = (POLY_FT3*)db_nextpri;
 
+    
+
     for (i = 0; i < model->h->numTex; i++) {
 
-        // Load the first 3 vertices of a quad to the GTE 
-        gte_ldv3(
-            &model->vIndex[model->texFaces[i].v[0]-1],
-            &model->vIndex[model->texFaces[i].v[1]-1],
-            &model->vIndex[model->texFaces[i].v[2]-1]);
-        // Rotation, Translation and Perspective Triple
-        gte_rtpt();
+        // Load the first 3 vertices of a quad to the GTE
+        if (triCounter <= 600) {
+            SVECTOR v1 = (SVECTOR){ model->vIndex[model->texFaces[i].v[0] - 1].vx,model->vIndex[model->texFaces[i].v[0] - 1].vy,model->vIndex[model->texFaces[i].v[0] - 1].vz,0 };
+            SVECTOR v2 = (SVECTOR){ model->vIndex[model->texFaces[i].v[1] - 1].vx,model->vIndex[model->texFaces[i].v[1] - 1].vy,model->vIndex[model->texFaces[i].v[1] - 1].vz,0 };
+            SVECTOR v3 = (SVECTOR){ model->vIndex[model->texFaces[i].v[2] - 1].vx,model->vIndex[model->texFaces[i].v[2] - 1].vy,model->vIndex[model->texFaces[i].v[2] - 1].vz,0 };
+            gte_ldv3(
+                &v1,
+                &v2,
+                &v3);
 
-        // Compute normal clip for backface culling
-        gte_nclip();
+            // Rotation, Translation and Perspective Triple
+            gte_rtpt();
 
-        // Get result
-        gte_stopz(&p);
+            // Compute normal clip for backface culling
+            gte_nclip();
 
-        // Skip this face if backfaced
-        if (p < 0)
-            continue;
+            // Get result
+            gte_stopz(&p);
 
-        // Calculate average Z for depth sorting
-        gte_avsz3();
-        gte_stotz(&p);
+            // Skip this face if backfaced
+            if (p < 0)
+                continue;
 
-        // Skip if clipping off
-        // (the shift right operator is to scale the depth precision)
-        if (((p >> 2) <= 0) || ((p >> 2) >= OT_LEN))
-            continue;
+            // Calculate average Z for depth sorting
+            gte_avsz3();
+            gte_stotz(&p);
 
-        // Initialize a tri primitive
-        
+            // Skip if clipping off
+            // (the shift right operator is to scale the depth precision)
+            if (((p >> 2) <= 0) || ((p >> 2) >= OT_LEN))
+                continue;
 
-        // Set the projected vertices to the primitive
-        gte_stsxy0(&polt3->x0);
-        gte_stsxy1(&polt3->x1);
-        gte_stsxy2(&polt3->x2);
+            // Initialize a tri primitive
 
-        // Test if tri is off-screen, discard if so
-        if (tri_clip(&screen_clip,
-            (DVECTOR*)&polt3->x0, (DVECTOR*)&polt3->x1,
-            (DVECTOR*)&polt3->x2))
-            continue;
 
-        // Load primitive color even though gte_ncs() doesn't use it.
-        // This is so the GTE will output a color result with the
-        // correct primitive code.
-        gte_ldrgb(&polt3->r0);
+            // Set the projected vertices to the primitive
+            gte_stsxy0(&polt3->x0);
+            gte_stsxy1(&polt3->x1);
+            gte_stsxy2(&polt3->x2);
 
-        SVECTOR norm = (SVECTOR){ model->nIndex[model->texFaces[i].n - 1].vx, model->nIndex[model->texFaces[i].n - 1].vy, model->nIndex[model->texFaces[i].n - 1].vz, 0 };
-        // Load the face normal
-        gte_ldv0(&norm);
+            // Test if tri is off-screen, discard if so
+            if (tri_clip(&screen_clip,
+                (DVECTOR*)&polt3->x0, (DVECTOR*)&polt3->x1,
+                (DVECTOR*)&polt3->x2))
+                continue;
 
-        gte_avsz4();
-        gte_stotz(&p);
+            // Load primitive color even though gte_ncs() doesn't use it.
+            // This is so the GTE will output a color result with the
+            // correct primitive code.
+            gte_ldrgb(&polt3->r0);
 
-        
+            SVECTOR norm = (SVECTOR){ model->nIndex[model->texFaces[i].n - 1].vx, model->nIndex[model->texFaces[i].n - 1].vy, model->nIndex[model->texFaces[i].n - 1].vz, 0 };
 
-        setUV3(polt3, model->uvIndex[model->texFaces[i].t[0] - 1].u, model->uvIndex[model->texFaces[i].t[0] - 1].v, model->uvIndex[model->texFaces[i].t[1] - 1].u, model->uvIndex[model->texFaces[i].t[1] - 1].v, model->uvIndex[model->texFaces[i].t[2] - 1].u, model->uvIndex[model->texFaces[i].t[2] - 1].v);
-        setClut(polt3, tex.crect->x, tex.crect->y);
-        setTPage(polt3, tex.mode & 0x3, 0, tex.prect->x, tex.prect->y);
-        setRGB0(polt3, 128, 128, 128);
-        setPolyFT3(polt3);
-        // Sort primitive to the ordering table
-        addPrim(OT + (p >> 2), polt3);
+            // Load the face normal
+            gte_ldv0(&norm);
 
-        // Advance to make another primitive
-        polt3++;
 
-        //printf("\nTri %d:  x1: %d y1: %d z1: %d  x2: %d y2: %d z2: %d  x3: %d y3: %d z3: %d", i, model->vIndex[model->texFaces[i].v[0] - 1].vx, model->vIndex[model->texFaces[i].v[0] - 1].vy, model->vIndex[model->texFaces[i].v[0] - 1].vz, model->vIndex[model->texFaces[i].v[1] - 1].vx, model->vIndex[model->texFaces[i].v[1] - 1].vy, model->vIndex[model->texFaces[i].v[1] - 1].vz, model->vIndex[model->texFaces[i].v[2] - 1].vx, model->vIndex[model->texFaces[i].v[2] - 1].vy, model->vIndex[model->texFaces[i].v[2] - 1].vz);
+            setUV3(polt3, model->uvIndex[model->texFaces[i].t[0] - 1].u, model->uvIndex[model->texFaces[i].t[0] - 1].v, model->uvIndex[model->texFaces[i].t[1] - 1].u, model->uvIndex[model->texFaces[i].t[1] - 1].v, model->uvIndex[model->texFaces[i].t[2] - 1].u, model->uvIndex[model->texFaces[i].t[2] - 1].v);
 
+            setClut(polt3, tex.crect->x, tex.crect->y);
+
+            setTPage(polt3, tex.mode & 0x3, 1, tex.prect->x, tex.prect->y);
+            setRGB0(polt3, 70, 70, 70);
+            setPolyFT3(polt3);
+
+
+            // Sort primitive to the ordering table
+            addPrim(OT + (p >> 2), polt3);
+
+            // Advance to make another primitive
+            polt3++;
+
+            triCounter++;
+            //printf("\nTri %d:  x1: %d y1: %d z1: %d  x2: %d y2: %d z2: %d  x3: %d y3: %d z3: %d", i, model->vIndex[model->texFaces[i].v[0] - 1].vx, model->vIndex[model->texFaces[i].v[0] - 1].vy, model->vIndex[model->texFaces[i].v[0] - 1].vz, model->vIndex[model->texFaces[i].v[1] - 1].vx, model->vIndex[model->texFaces[i].v[1] - 1].vy, model->vIndex[model->texFaces[i].v[1] - 1].vz, model->vIndex[model->texFaces[i].v[2] - 1].vx, model->vIndex[model->texFaces[i].v[2] - 1].vy, model->vIndex[model->texFaces[i].v[2] - 1].vz);
+        }
     }
 
     // Update nextpri
     db_nextpri = (char*)polt3;
+    triCounter = 0;
 
     // Restore matrix
     PopMatrix();
