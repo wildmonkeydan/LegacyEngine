@@ -6,9 +6,10 @@
 #include "clip.h"
 #include "psm.h"
 
-#define OT_LEN			1024
+#define OT_LEN			4094
 
 int triCounter = 0;
+u_char light = 40;
 
 typedef union {
     unsigned char c[4];
@@ -235,7 +236,7 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
     for (i = 0; i < model->h->numTex; i++) {
 
         // Load the first 3 vertices of a quad to the GTE
-        if (triCounter <= 600) {
+        if (light < 254) {
             SVECTOR v1 = (SVECTOR){ model->vIndex[model->texFaces[i].v[0] - 1].vx,model->vIndex[model->texFaces[i].v[0] - 1].vy,model->vIndex[model->texFaces[i].v[0] - 1].vz,0 };
             SVECTOR v2 = (SVECTOR){ model->vIndex[model->texFaces[i].v[1] - 1].vx,model->vIndex[model->texFaces[i].v[1] - 1].vy,model->vIndex[model->texFaces[i].v[1] - 1].vz,0 };
             SVECTOR v3 = (SVECTOR){ model->vIndex[model->texFaces[i].v[2] - 1].vx,model->vIndex[model->texFaces[i].v[2] - 1].vy,model->vIndex[model->texFaces[i].v[2] - 1].vz,0 };
@@ -254,8 +255,10 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
             gte_stopz(&p);
 
             // Skip this face if backfaced
-            if (p < 0)
+            if (p <= 0)
                 continue;
+
+            
 
             // Calculate average Z for depth sorting
             gte_avsz3();
@@ -263,16 +266,17 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
 
             // Skip if clipping off
             // (the shift right operator is to scale the depth precision)
-            if (((p >> 2) <= 0) || ((p >> 2) >= OT_LEN))
+            if (((p >> 2) <= 15) || ((p >> 2) >= OT_LEN))
                 continue;
 
             // Initialize a tri primitive
 
 
             // Set the projected vertices to the primitive
-            gte_stsxy0(&polt3->x0);
+            gte_stsxy3(&polt3->x0, &polt3->x1, &polt3->x2);
+            /*gte_stsxy0(&polt3->x0);
             gte_stsxy1(&polt3->x1);
-            gte_stsxy2(&polt3->x2);
+            gte_stsxy2(&polt3->x2);*/
 
             // Test if tri is off-screen, discard if so
             if (tri_clip(&screen_clip,
@@ -285,10 +289,10 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
             // correct primitive code.
             gte_ldrgb(&polt3->r0);
 
-            SVECTOR norm = (SVECTOR){ model->nIndex[model->texFaces[i].n - 1].vx, model->nIndex[model->texFaces[i].n - 1].vy, model->nIndex[model->texFaces[i].n - 1].vz, 0 };
+            /*SVECTOR norm = (SVECTOR){model->nIndex[model->texFaces[i].n - 1].vx, model->nIndex[model->texFaces[i].n - 1].vy, model->nIndex[model->texFaces[i].n - 1].vz, 0};
 
             // Load the face normal
-            gte_ldv0(&norm);
+            gte_ldv0(&norm);*/
 
 
             setUV3(polt3, model->uvIndex[model->texFaces[i].t[0] - 1].u, model->uvIndex[model->texFaces[i].t[0] - 1].v, model->uvIndex[model->texFaces[i].t[1] - 1].u, model->uvIndex[model->texFaces[i].t[1] - 1].v, model->uvIndex[model->texFaces[i].t[2] - 1].u, model->uvIndex[model->texFaces[i].t[2] - 1].v);
@@ -296,7 +300,7 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
             setClut(polt3, tex.crect->x, tex.crect->y);
 
             setTPage(polt3, tex.mode & 0x3, 1, tex.prect->x, tex.prect->y);
-            setRGB0(polt3, 70, 70, 70);
+            setRGB0(polt3, -light, -light, -light);
             setPolyFT3(polt3);
 
 
@@ -307,13 +311,18 @@ void DrawModel_Unlit(MODEL* model, MATRIX* mtx, VECTOR* pos, SVECTOR* rot, RECT 
             polt3++;
 
             triCounter++;
+            if (light < 254) {
+                light = triCounter + 40;
+            }
             //printf("\nTri %d:  x1: %d y1: %d z1: %d  x2: %d y2: %d z2: %d  x3: %d y3: %d z3: %d", i, model->vIndex[model->texFaces[i].v[0] - 1].vx, model->vIndex[model->texFaces[i].v[0] - 1].vy, model->vIndex[model->texFaces[i].v[0] - 1].vz, model->vIndex[model->texFaces[i].v[1] - 1].vx, model->vIndex[model->texFaces[i].v[1] - 1].vy, model->vIndex[model->texFaces[i].v[1] - 1].vz, model->vIndex[model->texFaces[i].v[2] - 1].vx, model->vIndex[model->texFaces[i].v[2] - 1].vy, model->vIndex[model->texFaces[i].v[2] - 1].vz);
         }
     }
 
     // Update nextpri
     db_nextpri = (char*)polt3;
+    printf(triCounter);
     triCounter = 0;
+    light = 40;
 
     // Restore matrix
     PopMatrix();

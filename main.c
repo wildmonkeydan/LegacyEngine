@@ -51,7 +51,7 @@
 #include "psm.h"
 
 // Region definition
-#define REGION          MODE_PAL 
+#define REGION          MODE_NTSC 
 
  // OT and Packet Buffer sizes
 #define OT_LEN			1024
@@ -254,11 +254,8 @@ int main() {
 
 
 	// Camera default coordinates
-	setVector(&cam_pos, 0, ONE * -200, 0);
+	setVector(&cam_pos, 0, ONE, 0);
 	setVector(&cam_rot, 0, 0, 0);
-
-	printf("\n%d",model->h->numMat);
-	printf("\n%d  %d", tim.mode, tim.prect->x);
 
 
 	// Main loop
@@ -472,8 +469,8 @@ int main() {
 		}
 
 		// Set rotation and translation matrix
-		gte_SetRotMatrix(&mtx);
-		gte_SetTransMatrix(&mtx);
+		//gte_SetRotMatrix(&mtx);
+		//gte_SetTransMatrix(&mtx);
 
 		// Draw the floor
 		/*pol4 = (POLY_F4*)db_nextpri;
@@ -548,8 +545,8 @@ int main() {
 			icos(rot.vy) >> 3);
 
 		// Sort cube
-		sort_cube(&mtx, &pos, &rot);
-		sort_pyrimid(&mtx, &posp, &rot);
+		//sort_cube(&mtx, &pos, &rot);
+		//sort_pyrimid(&mtx, &posp, &rot);
 		
 
 		// Make the cube SPEEN
@@ -890,7 +887,7 @@ void init() {
 	SetDefDrawEnv(&db[0].draw, SCREEN_XRES, 0, SCREEN_XRES, SCREEN_YRES);
 
 	// Enable draw area clear and dither processing
-	setRGB0(&db[0].draw, 30, 30, 40);
+	setRGB0(&db[0].draw, 0, 0, 0);
 	db[0].draw.isbg = 1;
 	db[0].draw.dtd = 1;
 
@@ -899,7 +896,7 @@ void init() {
 	SetDefDispEnv(&db[1].disp, SCREEN_XRES, 0, SCREEN_XRES, SCREEN_YRES);
 	SetDefDrawEnv(&db[1].draw, 0, 0, SCREEN_XRES, SCREEN_YRES);
 
-	setRGB0(&db[1].draw, 30, 30, 40);
+	setRGB0(&db[1].draw, 0, 0, 0);
 	db[1].draw.isbg = 1;
 	db[1].draw.dtd = 1;
 
